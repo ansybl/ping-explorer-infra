@@ -5,3 +5,5 @@ credentials = "../terraform-service-key.json"
 project = "dfpl-playground"
 region  = "us-central1"
 zone    = "us-central1-a"
+
+create_load_balancer = true

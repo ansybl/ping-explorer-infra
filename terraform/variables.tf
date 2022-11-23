@@ -23,6 +23,11 @@ variable "image_tag" {
   default = "latest"
 }
 
+variable "create_load_balancer" {
+  type    = bool
+  default = false
+}
+
 locals {
   environment  = terraform.workspace
   service_name = "ping-explorer"

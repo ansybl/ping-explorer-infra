@@ -4,7 +4,8 @@ Automates the [Ping explorer](https://github.com/ping-pub/explorer) deployment t
 
 Also patches the explorer to add a Canto testnet that links to the our full nodes.
 
-<https://ping-explorer-3mid33wd4a-uc.a.run.app/canto/staking?testnet>
+- <https://testnet-ping-explorer.ansybl.io/>
+- <https://ping-explorer.ansybl.io/>
 
 ## Build
 Download, patch and build locally before using.
