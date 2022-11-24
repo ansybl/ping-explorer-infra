@@ -81,3 +81,9 @@ devops/terraform/redeploy: devops/terraform/select/$(WORKSPACE)
 
 devops/terraform/destroy/all: devops/terraform/select/$(WORKSPACE)
 	terraform -chdir=terraform destroy
+
+devops/terraform/output: devops/terraform/select/$(WORKSPACE)
+	terraform -chdir=terraform output
+
+devops/terraform/output/load_balancer_ip: devops/terraform/select/$(WORKSPACE)
+	terraform -chdir=terraform output load_balancer_ip

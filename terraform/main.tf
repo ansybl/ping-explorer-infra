@@ -13,6 +13,13 @@ provider "google" {
   zone        = var.zone
 }
 
+provider "google-beta" {
+  project     = var.project
+  credentials = file(var.credentials)
+  region      = var.region
+  zone        = var.zone
+}
+
 resource "google_storage_bucket" "default" {
   name          = "ping-explorer-infra-bucket-tfstate"
   force_destroy = false
@@ -28,7 +35,7 @@ resource "google_project_service" "cloud_run_api" {
 }
 
 resource "google_cloud_run_service" "default" {
-  name     = local.service_name
+  name     = "${local.service_name}-frontend-${local.environment}"
   location = var.region
 
   template {
