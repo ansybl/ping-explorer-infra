@@ -10,11 +10,13 @@ resource "google_compute_region_network_endpoint_group" "this" {
 }
 
 module "load_balancer" {
-  count   = var.create_load_balancer ? 1 : 0
-  source  = "GoogleCloudPlatform/lb-http/google//modules/serverless_negs"
-  version = "6.3.0"
-  project = var.project
-  name    = "${local.service_name}-load-balancer-${local.environment}"
+  count          = var.create_load_balancer ? 1 : 0
+  source         = "GoogleCloudPlatform/lb-http/google//modules/serverless_negs"
+  version        = "6.3.0"
+  project        = var.project
+  name           = "${local.service_name}-load-balancer-${local.environment}"
+  create_address = false
+  address        = google_compute_global_address.load_balancer_address.address
 
   backends = {
     default = {
@@ -37,7 +39,7 @@ module "load_balancer" {
 
       log_config = {
         enable      = true
-        sample_rate = 1.0
+        sample_rate = 0.01
       }
     }
   }
