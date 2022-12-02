@@ -6,8 +6,8 @@ index 0000000..65625a2
 @@ -0,0 +1,19 @@
 +{
 +  "chain_name": "canto",
-+  "api": ["https://canto-node1.ansybl.io/api", "https://canto-node2.ansybl.io/api"],
-+  "rpc": ["https://canto-node1.ansybl.io/rpc", "https://canto-node2.ansybl.io/rpc"],
++  "api": ["https://canto-testnet.ansybl.io/api"],
++  "rpc": ["https://canto-testnet.ansybl.io/rpc"],
 +  "snapshot_provider": "",
 +  "sdk_version": "0.45.6",
 +  "coin_type": "60",
