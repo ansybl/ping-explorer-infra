@@ -2,16 +2,10 @@
 
 Automates the [Ping explorer](https://github.com/ping-pub/explorer) deployment to Goole Cloud Platform.
 
-Also patches the explorer to add a Canto testnet that links to the our full nodes.
-
-- <https://testnet-ping-explorer.ansybl.io/>
-- <https://ping-explorer.ansybl.io/>
-
 ## Build
-Download, patch and build locally before using.
+Download and build locally before using.
 ```sh
 make explorer/extract
-make explorer/patch
 make explorer/build
 ```
 
@@ -42,9 +36,8 @@ make explorer/run
 ```
 
 ## Advanced workflow
-I've updated the `canto-testnet.patch` with a different IP set and I want to redeploy my service.
+I've updated the explorer code and I want to redeploy my service.
 ```sh
-make explorer/patch
 make -B explorer/build
 export WORKSPACE=dev
 make docker/build

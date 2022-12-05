@@ -1,11 +1,10 @@
 IMAGE_TAG=latest
-EXPLORER_VERSION=d50d9edf0670897599c3ee640d9cf604ffc8aed0
+EXPLORER_VERSION=f3de156546479923b8cb0afa9bafd438b6125ad1
 EXPLORER_ARCHIVE=$(EXPLORER_VERSION).tar.gz
 EXPLORER_REMOTE_ARCHIVE=https://github.com/ping-pub/explorer/archive/$(EXPLORER_ARCHIVE)
 EXPLORER_DIRECTORY=explorer-$(EXPLORER_VERSION)
 EXPLORER_DIST=$(EXPLORER_DIRECTORY)/dist
 EXPLORER_NODE_MODULES=$(EXPLORER_DIRECTORY)/node_modules
-CANTO_TESTNET_JSON=$(EXPLORER_DIRECTORY)/src/chains/testnet/canto.json
 PROJECT=dfpl-playground
 REGISTRY=gcr.io/$(PROJECT)
 WORKSPACE?=dev
@@ -25,12 +24,6 @@ $(EXPLORER_DIRECTORY): explorer/download
 	tar -xvf $(EXPLORER_ARCHIVE)
 
 explorer/extract: $(EXPLORER_DIRECTORY)
-
-$(CANTO_TESTNET_JSON): explorer/extract
-	rm -f $(CANTO_TESTNET_JSON)
-	cd $(EXPLORER_DIRECTORY) && patch -p1 < ../canto-testnet.patch
-
-explorer/patch: $(CANTO_TESTNET_JSON)
 
 $(EXPLORER_NODE_MODULES):
 	cd $(EXPLORER_DIRECTORY) && yarn install
