@@ -10,7 +10,6 @@ Also patches the explorer to add a Canto testnet that links to the our full node
 ## Build
 Download, patch and build locally before using.
 ```sh
-export WORKSPACE=dev
 make explorer/extract
 make explorer/patch
 make explorer/build
@@ -33,6 +32,7 @@ In our setup the `WORKSPACE` matches with the network (e.g. `dev`, `prod`), but 
 Run locally, useful for testing and debugging.
 Via docker:
 ```sh
+export WORKSPACE=dev
 make docker/build
 make docker/run
 ```
@@ -46,6 +46,7 @@ I've updated the `canto-testnet.patch` with a different IP set and I want to red
 ```sh
 make explorer/patch
 make -B explorer/build
+export WORKSPACE=dev
 make docker/build
 make docker/push
 make devops/terraform/redeploy
