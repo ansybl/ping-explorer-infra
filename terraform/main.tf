@@ -31,7 +31,8 @@ resource "google_storage_bucket" "default" {
 }
 
 resource "google_project_service" "cloud_run_api" {
-  service = "run.googleapis.com"
+  service            = "run.googleapis.com"
+  disable_on_destroy = false
 }
 
 resource "google_cloud_run_service" "default" {
